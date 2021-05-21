@@ -33,7 +33,9 @@
         look-at="[gps-camera]"
         scale="120 120 120" gps-entity-place="latitude: 56.9553536; longitude: 24.1190222;"
       ></a-text>
-      <a-camera gps-camera rotation-reader> </a-camera>
+
+      <a-camera id='camera1' look-controls-enabled='false' arjs-look-controls='smoothingFactor: 0.1' gps-camera='gpsMinDistance: 5; maxDistance: 100000' camera="near: 10.0; far: 10000.0" rotation-reader> </a-camera> 
+      
     </a-scene>
   </body>
 </html>
