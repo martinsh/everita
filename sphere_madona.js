@@ -90,7 +90,7 @@ float[] S = float[](999.6699829101562, 996.5040283203125, 991.8699951171875, 982
 
 void main() {
 
-  float timeSec = (timeMsec/1000.0)*0.5;
+  float timeSec = (timeMsec/1000.0)*1.0;
   float fracttime = fract(timeSec);
   int time = int(timeSec);
 
@@ -102,7 +102,7 @@ void main() {
   float minterp = map(mix(m[time%348], m[(time+1)%348], fracttime),2.44,10.0,0.0,20.0);
   float Sinterp = map(mix(S[time%348], S[(time+1)%348], fracttime),966.783,1024.6,0.0,5.0);
   
-  float lines = abs(chladni(p, kinterp , linterp ,minterp,Sinterp,2.0));
+  float lines = abs(chladni(p, kinterp , linterp ,minterp,Sinterp,3.0));
   
   if (lines > 0.3)
   {
