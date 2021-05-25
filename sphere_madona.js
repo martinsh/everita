@@ -1,4 +1,4 @@
-AFRAME.registerShader('sphere', {
+AFRAME.registerShader('sphere_madona', {
   schema: {
     timeMsec: {type:'time'},
   },
