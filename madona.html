@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Everita Madona AR</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="sphere_madona.js"></script>
+    <script src="sphere_riga.js"></script>
+    <script src="sphere_liepaja.js"></script>
+  </head>
+
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene
+      artoolkit
+      renderer="antialias: true"
+    >
+      
+      <a-assets>
+        <!-- SFERA -->
+        <a-asset-item id="sfera" src="sfera.obj"></a-asset-item>
+      </a-assets>
+      
+      <!-- MADONA GPS 56.839227, 26.207713 -->
+      <a-entity obj-model="obj: #sfera" position="0 1.5 -2" scale= "1 1 1" material="shader:sphere_madona; side: front; "></a-entity>
+      
+      <!-- <a-entity obj-model="obj: #sfera" gps-entity-place="latitude: 56.950773; longitude: 24.075436;" position="0 20 0" scale= "30 30 30" material="shader:sphere_madona; side: front; "></a-entity>
+      
+
+      <a-entity obj-model="obj: #sfera" gps-entity-place="latitude: 56.510296; longitude: 20.988687;" position="0 20 0" scale= "30 30 30" material="shader:sphere_madona; side: front; "></a-entity>-->
+      
+    </a-scene>
+  </body>
+</html>
