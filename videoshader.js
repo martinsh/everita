@@ -75,8 +75,8 @@ AFRAME.registerShader('my-custom', {
             0.0, 0.0, 1.0
         ),
         vec2(1.280, 0.720), // Light size.
-          vec3(30.0), // Light intensity.
-        20.0 // Constant attenuation at 0 distance.
+          vec3(40.0), // Light intensity.
+        120.0 // Constant attenuation at 0 distance.
       );
 
       RectLight lightC = RectLight(
@@ -87,8 +87,8 @@ AFRAME.registerShader('my-custom', {
             0.0, 0.0, 1.0
         ),
         vec2(1.280, 0.720), // Light size.
-          vec3(30.0), // Light intensity.
-        20.0 // Constant attenuation at 0 distance.
+          vec3(40.0), // Light intensity.
+        120.0 // Constant attenuation at 0 distance.
       );
 
       RectLight lightR = RectLight(
@@ -99,8 +99,8 @@ AFRAME.registerShader('my-custom', {
             0.0, 0.0, 1.0
         ),
         vec2(1.280, 0.720), // Light size.
-          vec3(30.0), // Light intensity.
-        20.0 // Constant attenuation at 0 distance.
+          vec3(40.0), // Light intensity.
+        120.0 // Constant attenuation at 0 distance.
       );
 
       float sqr(float x) { return x*x; }
@@ -130,7 +130,7 @@ AFRAME.registerShader('my-custom', {
           // v = (1/2)^(1/2) = 2^(-1/2) = INVSQRT2. Using this we can
           // linearly map h = [0,2r] -> x = [0,3v]. Why 3v is to cover
           // approximately 100% of the distribution. 
-          return vec3(exp(-sqr((3.0*INVSQRT2/1.0) * (h/r))) / (light.attenuation + sqr(d)*sr),vec2(PlUV.x/light.size.x,PlUV.y/light.size.y)*0.5+0.5);
+          return vec3(exp(-sqr((3.0*INVSQRT2/1.5) * (h/r))) / (light.attenuation + sqr(d)*sr),vec2(PlUV.x/light.size.x,PlUV.y/light.size.y)*0.5+0.5);
       }
 
       vec3 RectLight_shade(in RectLight light, in Material material, in sampler2D src ,in vec3 P, in vec3 N, in vec3 R, float NoR)
