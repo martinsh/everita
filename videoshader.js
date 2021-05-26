@@ -176,7 +176,7 @@ AFRAME.registerShader('my-custom', {
         vec3 R = D + (2.0*NoR)*N;
         NoR = max(NoR, 0.0);
 
-        //mat.basecolor = sandColor*0.5+0.5;
+        mat.basecolor = sandColor*vec3(0.5)+vec3(0.5);
         mat.roughness = pow(sandColor.r*3.0,5.5);
         //mat.specularcolor = pow(vec3(1.0)-sandColor,vec3(2.0));
         //lightL.basis *= rotationY(-30.0);
