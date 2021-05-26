@@ -59,12 +59,12 @@ AFRAME.registerShader('my-custom', {
       };
 
       Material mat = Material(
-          0.1, // Roughness.
-          0.5, // Tail amount.
-          PI/2.0/4.0, // Specular cone tail theta angle.
-          0.805, // Schlick Fresnel coefficient for zero viewing angle.
+          0.02, // Roughness.
+          0.1, // Tail amount.
+          PI/2.0/3.0, // Specular cone tail theta angle.
+          0.505, // Schlick Fresnel coefficient for zero viewing angle.
           vec3(1.0), // Base color.
-          vec3(1.00) // Specular color.
+          vec3(1.0) // Specular color.
       );
 
       RectLight lightL = RectLight(
@@ -75,7 +75,7 @@ AFRAME.registerShader('my-custom', {
             0.0, 0.0, 1.0
         ),
         vec2(2.560, 1.440), // Light size.
-          vec3(70.0), // Light intensity.
+          vec3(100.0), // Light intensity.
         120.0 // Constant attenuation at 0 distance.
       );
 
@@ -87,7 +87,7 @@ AFRAME.registerShader('my-custom', {
             0.0, 0.0, 1.0
         ),
         vec2(2.560, 1.440), // Light size.
-          vec3(70.0), // Light intensity.
+          vec3(100.0), // Light intensity.
         120.0 // Constant attenuation at 0 distance.
       );
 
@@ -99,7 +99,7 @@ AFRAME.registerShader('my-custom', {
             0.0, 0.0, 1.0
         ),
         vec2(2.560, 1.440), // Light size.
-          vec3(70.0), // Light intensity.
+          vec3(100.0), // Light intensity.
         120.0 // Constant attenuation at 0 distance.
       );
 
