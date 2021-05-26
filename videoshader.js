@@ -166,7 +166,7 @@ AFRAME.registerShader('my-custom', {
     }
 
       void main () {
-        vec3 sandColor = texture2D(ground,vec2(vUV.x,vUV.y)*0.2).rgb;
+        vec3 sandColor = texture2D(ground,vec2(vUV.x,vUV.y),0.0).rgb;
         vec3 lightColor = vec3(0.32,0.57,0.75)*0.6;
         //lightColor += texture2D(src,vec2(0.5,0.5),4.0).rgb*0.05;
         // Normal and reflection vectors.
