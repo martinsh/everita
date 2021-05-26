@@ -75,7 +75,7 @@ AFRAME.registerShader('my-custom', {
             0.0, 0.0, 1.0
         ),
         vec2(1.280, 0.720), // Light size.
-          vec3(40.0), // Light intensity.
+          vec3(70.0), // Light intensity.
         120.0 // Constant attenuation at 0 distance.
       );
 
@@ -87,7 +87,7 @@ AFRAME.registerShader('my-custom', {
             0.0, 0.0, 1.0
         ),
         vec2(1.280, 0.720), // Light size.
-          vec3(40.0), // Light intensity.
+          vec3(70.0), // Light intensity.
         120.0 // Constant attenuation at 0 distance.
       );
 
@@ -99,7 +99,7 @@ AFRAME.registerShader('my-custom', {
             0.0, 0.0, 1.0
         ),
         vec2(1.280, 0.720), // Light size.
-          vec3(40.0), // Light intensity.
+          vec3(70.0), // Light intensity.
         120.0 // Constant attenuation at 0 distance.
       );
 
