@@ -185,7 +185,7 @@ AFRAME.registerShader('my-custom', {
         color += RectLight_shade(lightC, mat, srcC, p, N, R, NoR);
         color += RectLight_shade(lightR, mat, srcR, p, N, R, NoR);
 
-        gl_FragColor = vec4(color, 1.0);
+        gl_FragColor = vec4(color+sandColor, 1.0);
       }
     `
     });
