@@ -59,11 +59,11 @@ AFRAME.registerShader('my-custom', {
       };
 
       Material mat = Material(
-          0.01, // Roughness.
-          0.1, // Tail amount.
-          PI/2.0/3.0, // Specular cone tail theta angle.
-          0.505, // Schlick Fresnel coefficient for zero viewing angle.
-          vec3(0.7), // Base color.
+          0.1, // Roughness.
+          0.5, // Tail amount.
+          PI/2.0/4.0, // Specular cone tail theta angle.
+          0.805, // Schlick Fresnel coefficient for zero viewing angle.
+          vec3(1.0), // Base color.
           vec3(1.00) // Specular color.
       );
 
@@ -130,7 +130,7 @@ AFRAME.registerShader('my-custom', {
           // v = (1/2)^(1/2) = 2^(-1/2) = INVSQRT2. Using this we can
           // linearly map h = [0,2r] -> x = [0,3v]. Why 3v is to cover
           // approximately 100% of the distribution. 
-          return vec3(exp(-sqr((3.0*INVSQRT2/2.0) * (h/r))) / (light.attenuation + sqr(d)*sr),vec2(PlUV.x/light.size.x,PlUV.y/light.size.y)*0.5+0.5);
+          return vec3(exp(-sqr((3.0*INVSQRT2/1.0) * (h/r))) / (light.attenuation + sqr(d)*sr),vec2(PlUV.x/light.size.x,PlUV.y/light.size.y)*0.5+0.5);
       }
 
       vec3 RectLight_shade(in RectLight light, in Material material, in sampler2D src ,in vec3 P, in vec3 N, in vec3 R, float NoR)
