@@ -178,14 +178,14 @@ AFRAME.registerShader('my-custom', {
 
         //mat.basecolor = sandColor*0.5+0.5;
         mat.roughness = pow(sandColor.r*1.0,5.5);
-        //mat.specularcolor = pow(vec3(1.0)-sandColor,vec3(2.0));
+        mat.specularcolor = pow(vec3(1.0)-sandColor,vec3(2.0));
         //lightL.basis *= rotationY(-30.0);
         //lightR.basis *= rotationY(30.0);
         vec3 color = RectLight_shade(lightL, mat, srcL, p, N, R, NoR);
         color += RectLight_shade(lightC, mat, srcC, p, N, R, NoR);
         color += RectLight_shade(lightR, mat, srcR, p, N, R, NoR);
 
-        gl_FragColor = vec4(color+sandColor, 1.0);
+        gl_FragColor = vec4(color, 1.0);
       }
     `
     });
