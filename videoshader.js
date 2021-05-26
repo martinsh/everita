@@ -1,15 +1,4 @@
-!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>3 Video</title>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
-
-    <!-- Components and shaders go after A-Frame, but before the scene declaration. -->
-    <script>
-    AFRAME.registerShader('my-custom', {
+AFRAME.registerShader('my-custom', {
       // The schema declares any parameters for the shader.
       schema: {
         srcL: {type:'map', is:'uniform'},
@@ -161,7 +150,8 @@
           vec3 W = normalize(N - light.basis[2]);
           float Cd = RectLight_calcWeight(P, W, light, PI/4.0).x;
           vec3 ref = texture2D(src,Cs.yz,4.0).rgb;
-          vec3 lightcolor = texture2D(src,vec2(0.5,0.5),4.0).rgb;
+          //vec3 lightcolor = texture2D(src,vec2(0.5,0.5),4.0).rgb;
+          vec3 lightcolor = vec3(0.5);
           return light.intensity * lightcolor * mix(
               (Cd * max(dot(N, W), 0.0)) * material.basecolor,
               (mix(Cs.x, Cst, material.tailamount) * NoR) * material.specularcolor * ref,
@@ -199,96 +189,3 @@
       }
     `
     });
-    </script>
-
-    
-  </head>
-  <body>
-
-    <a-scene background="color: #000000" renderer = "antialias: true" >
-
-      <a-assets>
-        <img id="grid"
-             src="https://raw.githubusercontent.com/martinsh/aframe-video-johansons/master/assets/white_grid.png"
-             crossorigin="anonymous">
-        
-         <img id="ground"
-             src="https://raw.githubusercontent.com/martinsh/aframe-video-johansons/master/assets/concrete.jpg"
-             crossorigin="anonymous">
-        
-        <video id="video-L" 
-             loop="true"
-             repeat="true"
-             src="https://gallery-vr.s3.eu-north-1.amazonaws.com/out.mp4"  
-             crossorigin = "anonymous"
-             webkit-playsinline
-        ></video>
-        
-        <video id="video-C" 
-             loop="true"
-             repeat="true"
-             src="https://gallery-vr.s3.eu-north-1.amazonaws.com/SPECTR_C_3mbits.mp4"  
-             crossorigin = "anonymous"
-             webkit-playsinline
-        ></video>
-
-        <video id="video-R" 
-             loop="true"
-             repeat="true"
-             src="https://gallery-vr.s3.eu-north-1.amazonaws.com/SPECTR_R_3mbits.mp4"
-             crossorigin = "anonymous"
-             webkit-playsinline
-        ></video>
-      </a-assets>
-
-          <a-text id= "back" value="<<" negate="true" scale="10 10 10" position="0 2 20" rotation="0 180 0" color="tomato"><a-link href="https://gallery-vr.glitch.me/" position="0.15 0 0" scale="0.2 0.2 0.2" material=" visible: false">
-        </a-link></a-text>
-
-      
-
-
-      <!-- MEDIAS HOLDER -->
-      <a-video id="video-screenL" src="#video-L" position="-2.5 1.5 -3.5" rotation="0 30 0" width="1.44" height="1.152"></a-video>
-      <a-video id="video-screenC" src="#video-C" position="0 1.5 -4" width="1.44" height="1.152"></a-video>
-      <a-video id="video-screenR" src="#video-R" position="2.5 1.5 -3.5" rotation="0 -30 0" width="1.44" height="1.152"></a-video>
-      <!-- END MEDIAS HOLDER -->
-
-      
-      <a-entity id="kameraRig" movement-controls="speed: 0.1">
-        <a-entity
-          camera="near: 0.1"
-          position="0 1.6 0"
-          look-controls="pointerLockEnabled: false"
-          twoway-motion="speed: 35"
-          cursor="rayOrigin: mouse"
-        ></a-entity>
-        <!-- VR CONTROLLERS -->
-        <a-entity oculus-touch-controls="hand: left"></a-entity>
-        <a-entity oculus-touch-controls="hand: right"></a-entity>
-        <!-- END VR CONTROLLERS -->
-      </a-entity>
-      
-      <script>
-        window.addEventListener('click', function () {
-          var vL = document.querySelector('#video-L');
-          var vC = document.querySelector('#video-C');
-          var vR = document.querySelector('#video-R');
-          vL.play();
-          vC.play();
-          vR.play();
-        });
-      </script>
-
-      <!-- ENVIRONMENT -->
-
-      
-      <a-entity
-          geometry="primitive: plane; width: 1000; height: 1000;" rotation="-90 0 0" position="0 -0.1 0"
-          material="shader:my-custom; srcL:#video-L ; srcC:#video-C ; srcR:#video-R ;repeat: 1000 1000; ground:#ground; transparent:false"></a-entity>
-      
-
-      
-    </a-scene>
-
-  </body>
-</html>
