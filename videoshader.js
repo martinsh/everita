@@ -68,7 +68,7 @@ AFRAME.registerShader('my-custom', {
       );
 
       RectLight lightL = RectLight(
-        vec3(-5.0, 1.5, -2.0), // Light position (center).
+        vec3(-6.0, 1.6, -2.0), // Light position (center).
         mat3( // Light basis.
             1.0, 0.0, 0.0,
             0.0, 1.0, 0.0,
@@ -80,7 +80,7 @@ AFRAME.registerShader('my-custom', {
       );
 
       RectLight lightC = RectLight(
-        vec3(0.0, 1.5, -3.5), // Light position (center).
+        vec3(0.0, 1.6, -3.7), // Light position (center).
         mat3( // Light basis.
             1.0, 0.0, 0.0,
             0.0, 1.0, 0.0,
@@ -92,7 +92,7 @@ AFRAME.registerShader('my-custom', {
       );
 
       RectLight lightR = RectLight(
-        vec3(5.0, 1.5, -2.0), // Light position (center).
+        vec3(6.0, 1.6, -2.0), // Light position (center).
         mat3( // Light basis.
             1.0, 0.0, 0.0,
             0.0, 1.0, 0.0,
