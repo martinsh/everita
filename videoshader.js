@@ -151,7 +151,7 @@ AFRAME.registerShader('my-custom', {
           float Cd = RectLight_calcWeight(P, W, light, PI/4.0).x;
           vec3 ref = texture2D(src,Cs.yz,4.0).rgb;
           //vec3 lightcolor = texture2D(src,vec2(0.5,0.5),4.0).rgb;
-          vec3 lightcolor = vec3(1.0);
+          vec3 lightcolor = vec3(2.0);
           return light.intensity * lightcolor * mix(
               (Cd * max(dot(N, W), 0.0)) * material.basecolor,
               (mix(Cs.x, Cst, material.tailamount) * NoR) * material.specularcolor * ref,
@@ -167,7 +167,6 @@ AFRAME.registerShader('my-custom', {
 
       void main () {
         vec3 sandColor = texture2D(ground,vec2(vUV.x,vUV.y)*0.05,0.0).rgb;
-        vec3 lightColor = vec3(0.32,0.57,0.75)*0.6;
         // Normal and reflection vectors.
         vec3 N = normalize(vec3(0.0,1.0,0.0));
         vec3 D = normalize(p-c);
@@ -175,9 +174,9 @@ AFRAME.registerShader('my-custom', {
         vec3 R = D + (2.0*NoR)*N;
         NoR = max(NoR, 0.0);
 
-        mat.basecolor = vec3((1.0-sandColor.r)*0.8+0.2);
-        mat.roughness = pow(sandColor.r*1.0+0.1,0.5);
-        mat.specularcolor = pow(sandColor+0.1,vec3(2.0));
+        mat.basecolor = vec3((1.0-sandColor.r)*0.7+0.3);
+        mat.roughness = pow(sandColor.r*0.8+0.2,0.5);
+        mat.specularcolor = pow(sandColor+0.2,vec3(2.0));
         lightL.basis *= rotationY(-40.0);
         lightR.basis *= rotationY(40.0);
         vec3 color = RectLight_shade(lightL, mat, srcL, p, N, R, NoR);
