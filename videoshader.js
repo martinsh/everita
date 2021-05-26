@@ -74,7 +74,7 @@ AFRAME.registerShader('my-custom', {
             0.0, 1.0, 0.0,
             0.0, 0.0, 1.0
         ),
-        vec2(0.720, 0.576), // Light size.
+        vec2(1.280, 0.720), // Light size.
           vec3(30.0), // Light intensity.
         20.0 // Constant attenuation at 0 distance.
       );
@@ -86,7 +86,7 @@ AFRAME.registerShader('my-custom', {
             0.0, 1.0, 0.0,
             0.0, 0.0, 1.0
         ),
-        vec2(0.720, 0.576), // Light size.
+        vec2(1.280, 0.720), // Light size.
           vec3(30.0), // Light intensity.
         20.0 // Constant attenuation at 0 distance.
       );
@@ -98,7 +98,7 @@ AFRAME.registerShader('my-custom', {
             0.0, 1.0, 0.0,
             0.0, 0.0, 1.0
         ),
-        vec2(0.720, 0.576), // Light size.
+        vec2(1.280, 0.720), // Light size.
           vec3(30.0), // Light intensity.
         20.0 // Constant attenuation at 0 distance.
       );
@@ -151,7 +151,7 @@ AFRAME.registerShader('my-custom', {
           float Cd = RectLight_calcWeight(P, W, light, PI/4.0).x;
           vec3 ref = texture2D(src,Cs.yz,4.0).rgb;
           //vec3 lightcolor = texture2D(src,vec2(0.5,0.5),4.0).rgb;
-          vec3 lightcolor = vec3(0.5);
+          vec3 lightcolor = vec3(0.2);
           return light.intensity * lightcolor * mix(
               (Cd * max(dot(N, W), 0.0)) * material.basecolor,
               (mix(Cs.x, Cst, material.tailamount) * NoR) * material.specularcolor * ref,
