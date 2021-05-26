@@ -64,7 +64,7 @@ AFRAME.registerShader('my-custom', {
           PI/2.0/3.0, // Specular cone tail theta angle.
           0.505, // Schlick Fresnel coefficient for zero viewing angle.
           vec3(1.0), // Base color.
-          vec3(1.0) // Specular color.
+          vec3(2.0) // Specular color.
       );
 
       RectLight lightL = RectLight(
@@ -130,7 +130,7 @@ AFRAME.registerShader('my-custom', {
           // v = (1/2)^(1/2) = 2^(-1/2) = INVSQRT2. Using this we can
           // linearly map h = [0,2r] -> x = [0,3v]. Why 3v is to cover
           // approximately 100% of the distribution. 
-          return vec3(exp(-sqr((3.0*INVSQRT2/1.0) * (h/r))) / (light.attenuation + sqr(d)*sr),vec2(PlUV.x/light.size.x,PlUV.y/light.size.y)*0.5+0.5);
+          return vec3(exp(-sqr((3.0*INVSQRT2/1.5) * (h/r))) / (light.attenuation + sqr(d)*sr),vec2(PlUV.x/light.size.x,PlUV.y/light.size.y)*0.5+0.5);
       }
 
       vec3 RectLight_shade(in RectLight light, in Material material, in sampler2D src ,in vec3 P, in vec3 N, in vec3 R, float NoR)
@@ -168,7 +168,6 @@ AFRAME.registerShader('my-custom', {
       void main () {
         vec3 sandColor = texture2D(ground,vec2(vUV.x,vUV.y)*0.05,0.0).rgb;
         vec3 lightColor = vec3(0.32,0.57,0.75)*0.6;
-        //lightColor += texture2D(src,vec2(0.5,0.5),4.0).rgb*0.05;
         // Normal and reflection vectors.
         vec3 N = normalize(vec3(0.0,1.0,0.0));
         vec3 D = normalize(p-c);
@@ -176,7 +175,7 @@ AFRAME.registerShader('my-custom', {
         vec3 R = D + (2.0*NoR)*N;
         NoR = max(NoR, 0.0);
 
-        mat.basecolor = vec3(0.5);
+        mat.basecolor = vec3(sandColor*0.5);
         mat.roughness = pow(sandColor.r*1.0,0.5);
         mat.specularcolor = pow(sandColor,vec3(2.0));
         lightL.basis *= rotationY(-40.0);
