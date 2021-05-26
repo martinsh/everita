@@ -62,7 +62,7 @@ AFRAME.registerShader('my-custom', {
           0.02, // Roughness.
           0.1, // Tail amount.
           PI/2.0/3.0, // Specular cone tail theta angle.
-          0.505, // Schlick Fresnel coefficient for zero viewing angle.
+          0.9, // Schlick Fresnel coefficient for zero viewing angle.
           vec3(1.0), // Base color.
           vec3(2.0) // Specular color.
       );
@@ -175,9 +175,9 @@ AFRAME.registerShader('my-custom', {
         vec3 R = D + (2.0*NoR)*N;
         NoR = max(NoR, 0.0);
 
-        mat.basecolor = vec3(sandColor*0.5);
-        mat.roughness = pow(sandColor.r*1.0,0.5);
-        mat.specularcolor = pow(sandColor,vec3(2.0));
+        mat.basecolor = vec3((1.0-sandColor.r)*0.8+0.2);
+        mat.roughness = pow(sandColor.r*1.0+0.1,0.5);
+        mat.specularcolor = pow(sandColor+0.1,vec3(2.0));
         lightL.basis *= rotationY(-40.0);
         lightR.basis *= rotationY(40.0);
         vec3 color = RectLight_shade(lightL, mat, srcL, p, N, R, NoR);
