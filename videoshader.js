@@ -166,7 +166,7 @@ AFRAME.registerShader('my-custom', {
     }
 
       void main () {
-        vec3 sandColor = texture2D(ground,vec2(vUV.x,vUV.y),0.0).rgb;
+        vec3 sandColor = texture2D(ground,vec2(vUV.x,vUV.y)*0.1,0.0).rgb;
         vec3 lightColor = vec3(0.32,0.57,0.75)*0.6;
         //lightColor += texture2D(src,vec2(0.5,0.5),4.0).rgb*0.05;
         // Normal and reflection vectors.
@@ -176,9 +176,9 @@ AFRAME.registerShader('my-custom', {
         vec3 R = D + (2.0*NoR)*N;
         NoR = max(NoR, 0.0);
 
-        mat.basecolor = sandColor*vec3(0.5)+vec3(0.5);
-        mat.roughness = pow(sandColor.r*3.0,5.5);
-        //mat.specularcolor = pow(vec3(1.0)-sandColor,vec3(2.0));
+        //mat.basecolor = sandColor*vec3(0.5)+vec3(0.5);
+        mat.roughness = pow(sandColor.r*1.0,1.0);
+        mat.specularcolor = pow(vec3(1.0)-sandColor,vec3(2.0));
         lightL.basis *= rotationY(-40.0);
         lightR.basis *= rotationY(40.0);
         vec3 color = RectLight_shade(lightL, mat, srcL, p, N, R, NoR);
