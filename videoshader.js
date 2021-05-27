@@ -176,7 +176,7 @@ AFRAME.registerShader('my-custom', {
 
         mat.basecolor = vec3((1.0-sandColor.r)*0.7+0.3);
         mat.roughness = pow(sandColor.r*0.8+0.2,0.5);
-        mat.specularcolor = pow(sandColor+0.2,vec3(2.0));
+        mat.specularcolor = pow(sandColor,vec3(1.0));
         lightL.basis *= rotationY(-40.0);
         lightR.basis *= rotationY(40.0);
         vec3 color = RectLight_shade(lightL, mat, srcL, p, N, R, NoR);
