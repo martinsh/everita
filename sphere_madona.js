@@ -115,7 +115,7 @@ void main() {
   
   float kinterp = k;
   float linterp = l;
-  float minterp = map(m *0.15,2.44,10.0,0.0,20.0);
+  float minterp = map(m,2.44,10.0,0.0,20.0);
   float Sinterp = map(S,966.783,1024.6,0.0,5.0);
   
   float lines = abs(chladni(p, kinterp , linterp , minterp, Sinterp, 3.0));
